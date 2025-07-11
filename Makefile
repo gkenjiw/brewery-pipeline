@@ -32,7 +32,7 @@ shell:
 clean:
 	@$(DOCKER) down -v
 
-# Run tests
+# Run tests (not working yet)
 test:
 	@docker run --rm -v .:/app -w /app python:3.9 \
 	bash -c "pip install -r docker/airflow/requirements.txt && pytest tests/"

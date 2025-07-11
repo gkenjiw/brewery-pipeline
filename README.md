@@ -40,7 +40,7 @@ Open Brewery DB API
 You can run the process in two ways:
 
 ### 1. Full Pipeline DAG
-`brewery_pipeline_all_layers.py`: orchestrates Bronze → Silver → Gold in sequence.
+`brewery_full_pipeline.py`: orchestrates Bronze → Silver → Gold in sequence.
 
 ### 2. Modular DAGs
 - `bronze/ingest_breweries.py`: fetch and persist raw data
@@ -59,11 +59,14 @@ cd brewery_pipeline
 ### 2. Start Airflow via Docker
 
 ```bash
-make init     # Initialize Airflow DB
 make up       # Build and start containers
 ```
 
 Airflow UI will be available at [http://localhost:8080](http://localhost:8080)
+
+The default user and password is:
+   user:      airflow
+   password:  airflow
 
 ### 3. Configure Discord Webhook
 
@@ -107,7 +110,7 @@ brewery_pipeline/
 │   ├── silver/
 │   ├── gold/
 │   ├── common/        # Reusable code (API, transforms)
-│   └── brewery_pipeline_all_layers.py
+│   └── pipelines/     # Full pipelines (Execute all layers)
 ├── data/
 ├── docker/
 │   └── airflow/
