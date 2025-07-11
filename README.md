@@ -70,7 +70,7 @@ Airflow UI will be available at [http://localhost:8080](http://localhost:8080)
 In `dags/common/notifiers.py:37` and `dags/common/notifiers.py:59`, you need to change the `WEB_HOOK_URL` to configure the Discord Bot.
 (You can use your own server and webhook, but a test server should be provided in private)
 
-### 3. Run the Pipeline
+### 4. Run the Pipeline
 
 Enable and trigger either the full DAG or the modular ones from the Airflow UI.
 

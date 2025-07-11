@@ -37,7 +37,8 @@ def notify_discord_failure(context):
     webhook_url = "WEB_HOOK_URL"
     dag_id = context.get("dag").dag_id
     task_id = context.get("task_instance").task_id
-    execution_date = context.get("execution_date")
+    execution_date = context.get("start_date")
+    duration = context.get("duration")
     # log_url = context.get("task_instance").log_url # log_url is not available, should be in next version https://github.com/apache/airflow/pull/50376
 
     message = {
@@ -45,6 +46,7 @@ def notify_discord_failure(context):
                     f"DAG: **{dag_id}**\n"
                     f"Task: `{task_id}`\n"
                     f"Execution Time: `{execution_date}`\n"
+                    f"Duration: `{duration}`\n"
                 #    f"[View Log]({log_url})"
     }
 
@@ -59,7 +61,8 @@ def notify_discord_success(context):
     webhook_url = "WEB_HOOK_URL"
     dag_id = context.get("dag").dag_id
     task_id = context.get("task_instance").task_id
-    execution_date = context.get("execution_date")
+    execution_date = context.get("start_date")
+    duration = context.get("duration")
     # log_url = context.get("task_instance").log_url # log_url is not available, should be in next version https://github.com/apache/airflow/pull/50376
 
     message = {
@@ -67,6 +70,7 @@ def notify_discord_success(context):
                     f"DAG: **{dag_id}**\n"
                     f"Task: `{task_id}`\n"
                     f"Execution Time: `{execution_date}`\n"
+                    f"Duration: `{duration}`\n"
                    # f"[View Log]({log_url})"
     }
 
