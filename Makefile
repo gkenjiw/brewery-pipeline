@@ -34,7 +34,8 @@ clean:
 
 # Run tests
 test:
-	@$(DOCKER) run --rm -v $(PWD):/app -w /app python:3.9 bash -c "pip install -r docker/airflow/requirements.txt && pytest tests/"
+	@docker run --rm -v .:/app -w /app python:3.9 \
+	bash -c "pip install -r docker/airflow/requirements.txt && pytest tests/"
 
 # Reset the project (down + clean + init + up)
 reset: down clean init up

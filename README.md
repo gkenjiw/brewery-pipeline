@@ -52,7 +52,7 @@ You can run the process in two ways:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/youruser/brewery_pipeline.git
+git clone https://github.com/gkenjiw/brewery_pipeline.git
 cd brewery_pipeline
 ```
 
@@ -68,19 +68,6 @@ Airflow UI will be available at [http://localhost:8080](http://localhost:8080)
 ### 3. Run the Pipeline
 
 Enable and trigger either the full DAG or the modular ones from the Airflow UI.
-
-## 🧪 Running Tests
-
-```bash
-make test
-```
-
-Or manually:
-
-```bash
-docker run --rm -v $PWD:/app -w /app python:3.9 \
-    bash -c "pip install -r docker/airflow/requirements.txt && pytest tests/"
-```
 
 ## 📈 Monitoring & Alerting
 
@@ -135,5 +122,3 @@ This project is designed for local execution. If deployed to the cloud:
 - Replace local volumes with S3, GCS, or Azure Blob
 - Use managed Airflow (e.g., MWAA, Cloud Composer, Astro)
 - Use Delta Lake and Spark for large-scale transformations
-
-*Please do not include your cloud credentials or access keys in this repo.*
