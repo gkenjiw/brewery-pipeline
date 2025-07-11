@@ -34,7 +34,7 @@ def notify_slack(context):
 # Since I don't have a Slack license, I'm using a Discord webhook to send notifications
 
 def notify_discord_failure(context):
-    webhook_url = "https://discord.com/api/webhooks/1393218030095568966/Qg5GHG0wCY0sUp1gYQm4ckifUsEr9T11vwN9aajoTqXLCYjbCQP96Mo2DFlVXJ1VBhP9"
+    webhook_url = "WEB_HOOK_URL"
     dag_id = context.get("dag").dag_id
     task_id = context.get("task_instance").task_id
     execution_date = context.get("execution_date")
@@ -56,7 +56,7 @@ def notify_discord_failure(context):
         logging.error(f"Failed to send Discord notification: {e}")
 
 def notify_discord_success(context):
-    webhook_url = "https://discord.com/api/webhooks/1393218030095568966/Qg5GHG0wCY0sUp1gYQm4ckifUsEr9T11vwN9aajoTqXLCYjbCQP96Mo2DFlVXJ1VBhP9"
+    webhook_url = "WEB_HOOK_URL"
     dag_id = context.get("dag").dag_id
     task_id = context.get("task_instance").task_id
     execution_date = context.get("execution_date")

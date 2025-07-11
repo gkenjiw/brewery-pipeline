@@ -65,15 +65,26 @@ make up       # Build and start containers
 
 Airflow UI will be available at [http://localhost:8080](http://localhost:8080)
 
+### 3. Configure Discord Webhook
+
+In `dags/common/notifiers.py:37` and `dags/common/notifiers.py:59`, you need to change the `WEB_HOOK_URL` to configure the Discord Bot.
+(You can use your own server and webhook, but a test server should be provided in private)
+
 ### 3. Run the Pipeline
 
 Enable and trigger either the full DAG or the modular ones from the Airflow UI.
 
 ## 📈 Monitoring & Alerting
 
-This project uses Airflow’s native logging, retry, and SLA features. In a production setup, you should extend this with:
+For monitoring and alerting uses Airflow’s native logging, retry, and SLA features, and it's using Discord Webhook integration to notify success and failure at the tasks.
 
-- Slack or Email alerts on task failure
+![Discord notification demo](assets/image.png)
+
+For security measures, link to Discord server and it's webhook should be provided in private.
+
+In a production setup, you should extend this with:
+
+- Slack or Email alerts on task failure (methods are in notifiers.py in `dags\common`, just need to configure)
 - Data quality checks (e.g., null fields, record counts)
 - Metrics with Prometheus/Grafana
 - Integration with external observability tools like Datadog
